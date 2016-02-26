@@ -10,5 +10,5 @@ Stake, State, Win Potential, Win, Bet Risks and Reasons
 50,Settled,0, 0,
 50,Unsettled,400, 0,Risky,Customer has Win percentage over 60%,
 50,Unsettled,200, 0,Risky,Customer has Win percentage over 60%,
-500,Unsettled,4000, 0,Risky,Customer has Win percentage over 60%,Unsual,Win potential over 1000,Unsual,Bet is 10 times higher than the customers average,
+500,Unsettled,4000, 0,Risky,Customer has Win percentage over 60%,Unsual,Bet is 10 times higher than the customers average,Unsual,Win potential over 1000,
 50,Unsettled,400, 0,Risky,Customer has Win percentage over 60%,

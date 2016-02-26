@@ -19,6 +19,9 @@ namespace CustomerBehaviourAnalyser
             CustomerParser parser = null;
             WinRateAnalyser winRateAnalyser = new WinRateAnalyser();
             RiskAnalyser riskAnalyser = new RiskAnalyser();
+            riskAnalyser.RegisterRule(new CustomerFlaggedRule());
+            riskAnalyser.RegisterRule(new HighStakeRule());
+            riskAnalyser.RegisterRule(new HighWinPotentialRule());
 
             using (var fileStream = settledBetsFile.OpenRead())
             {

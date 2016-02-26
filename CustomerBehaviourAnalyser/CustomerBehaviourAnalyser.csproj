@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysers\CustomerFlaggedRule.cs" />
+    <Compile Include="Analysers\HighStakeRule.cs" />
+    <Compile Include="Analysers\HighWinPotentialRule.cs" />
+    <Compile Include="Analysers\IAnalysingRule.cs" />
     <Compile Include="Analysers\RiskAnalyser.cs" />
     <Compile Include="CustomerCSVWriter.cs" />
     <Compile Include="CustomerParser.cs" />
