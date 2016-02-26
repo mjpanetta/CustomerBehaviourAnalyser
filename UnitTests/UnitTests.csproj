@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CustomerParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinRateAnalyserTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
