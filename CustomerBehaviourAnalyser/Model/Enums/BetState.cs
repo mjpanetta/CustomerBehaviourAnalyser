@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UnitTests
+namespace CustomerBehaviourAnalyser.Model.Enums
 {
-    public class Class1
+    public enum BetState
     {
+        Unsettled, Settled
     }
 }

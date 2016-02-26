@@ -1,1 +1,6 @@
 C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\bin\Debug\CustomerBehaviourAnalyser.exe.config
+C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\bin\Debug\CustomerBehaviourAnalyser.exe
+C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\bin\Debug\CustomerBehaviourAnalyser.pdb
+C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\obj\Debug\CustomerBehaviourAnalyser.csprojResolveAssemblyReference.cache
+C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\obj\Debug\CustomerBehaviourAnalyser.exe
+C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\obj\Debug\CustomerBehaviourAnalyser.pdb

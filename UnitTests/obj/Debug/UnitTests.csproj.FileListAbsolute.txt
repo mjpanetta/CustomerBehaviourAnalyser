@@ -1,0 +1,9 @@
+C:\Source\CustomerBehaviourAnalyser\UnitTests\bin\Debug\UnitTests.dll
+C:\Source\CustomerBehaviourAnalyser\UnitTests\bin\Debug\UnitTests.pdb
+C:\Source\CustomerBehaviourAnalyser\UnitTests\bin\Debug\CustomerBehaviourAnalyser.exe
+C:\Source\CustomerBehaviourAnalyser\UnitTests\bin\Debug\nunit.framework.dll
+C:\Source\CustomerBehaviourAnalyser\UnitTests\bin\Debug\CustomerBehaviourAnalyser.pdb
+C:\Source\CustomerBehaviourAnalyser\UnitTests\bin\Debug\nunit.framework.xml
+C:\Source\CustomerBehaviourAnalyser\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\Source\CustomerBehaviourAnalyser\UnitTests\obj\Debug\UnitTests.dll
+C:\Source\CustomerBehaviourAnalyser\UnitTests\obj\Debug\UnitTests.pdb
