@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analysers\RiskAnalyser.cs" />
     <Compile Include="CustomerParser.cs" />
     <Compile Include="Model\Bet.cs" />
     <Compile Include="Model\BetRisk.cs" />
     <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Enums\BetRiskLevel.cs" />
     <Compile Include="Model\Enums\BetState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
