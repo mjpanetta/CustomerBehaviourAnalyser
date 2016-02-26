@@ -18,7 +18,7 @@ namespace UnitTests
         private Bet LostBet = new Bet { Stake = 50, State = BetState.Settled, Win = 0, WinPotential = 0 };
         private Bet UnsettledBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 500 };
 
-        private Bet HighWinPotentialBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 1000 };
+        private Bet HighWinPotentialBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 1001 };
 
         private Bet HighStakeBet = new Bet {Stake = 500, State = BetState.Unsettled, Win = 0, WinPotential = 999};
 
@@ -99,9 +99,10 @@ namespace UnitTests
 
             bool result = analyser.AnalyseCustomer(customer);
 
+            //dont actually know where the bestrisk is going to be saved yet.. would be good to test each rule seperate of each other
             Assert.IsTrue(result);
-            Assert.AreEqual(customer.Bets[2].BetRisks[1].Reason, "Customer has Win percentage over 60%");
-            Assert.AreEqual(customer.Bets[2].BetRisks[1].RiskLevel, BetRiskLevel.Risky);
+            Assert.AreEqual(customer.Bets[0].BetRisks[0].Reason, "Customer has Win percentage over 60%");
+            Assert.AreEqual(customer.Bets[0].BetRisks[0].RiskLevel, BetRiskLevel.Risky);
         }
 
         [Test]

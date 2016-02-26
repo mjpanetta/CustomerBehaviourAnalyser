@@ -20,7 +20,37 @@ namespace CustomerBehaviourAnalyser.Analysers
 
         public bool AnalyseCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            bool risky = false;
+            
+            foreach (var bet in customer.Bets.Where(b => b.State == BetState.Unsettled))
+            {
+                if (customer.IsFlaggedForHighWinPercentage)
+                {
+                    bet.BetRisks.Add(new BetRisk { Reason = HIGH_WIN_PERCENTAGE, RiskLevel = BetRiskLevel.Risky });
+                    risky = true;
+                }
+
+                if (bet.WinPotential > 1000)
+                {
+                    bet.BetRisks.Add(new BetRisk { Reason = HIGH_WIN_POTENTIAL, RiskLevel = BetRiskLevel.Unsual });
+                    risky = true;
+                }
+
+                //assumed current bet shouldn't be included when working out averages
+                Double averageStake = customer.Bets.Where(b => b != bet).Average(b => b.Stake);
+                //Bet risk will always be 10 times higher if 30 times higher, no point in recording both
+                if (bet.Stake > averageStake * 10)
+                {
+                    risky = true;
+                    if (bet.Stake > averageStake * 30)
+                        bet.BetRisks.Add(new BetRisk { Reason = STAKE_HIGHER_THAN_30_TIMES_AVERAGE, RiskLevel = BetRiskLevel.HighlyUnusual });
+                    else
+                        bet.BetRisks.Add(new BetRisk { Reason = STAKE_HIGHER_THAN_10_TIMES_AVERAGE, RiskLevel = BetRiskLevel.Unsual });
+                }
+
+            }
+
+            return risky;
         }
     }
 }
