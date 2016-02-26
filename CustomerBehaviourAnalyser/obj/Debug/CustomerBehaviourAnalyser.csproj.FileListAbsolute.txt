@@ -4,3 +4,6 @@ C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\bin\Debug\Customer
 C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\obj\Debug\CustomerBehaviourAnalyser.csprojResolveAssemblyReference.cache
 C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\obj\Debug\CustomerBehaviourAnalyser.exe
 C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\obj\Debug\CustomerBehaviourAnalyser.pdb
+C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\bin\Debug\CsvHelper.dll
+C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\bin\Debug\CsvHelper.pdb
+C:\Source\CustomerBehaviourAnalyser\CustomerBehaviourAnalyser\bin\Debug\CsvHelper.xml

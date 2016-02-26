@@ -1,0 +1,19 @@
+CustomerId, IsFlaggedForHighWinPercentage
+1, True
+
+Customers bets
+Stake, State, Win Potential, Win, Bet Risks and Reasons
+50,Settled,0, 250,
+20,Settled,0, 60,
+50,Settled,0, 0,
+50,Settled,0, 120,
+50,Settled,0, 400,
+40,Settled,0, 0,
+40,Settled,0, 160,
+80,Settled,0, 320,
+60,Settled,0, 480,
+50,Settled,0, 0,
+50,Unsettled,500, 0,Risky,Customer has Win percentage over 60%,
+500,Unsettled,5000, 0,Risky,Customer has Win percentage over 60%,Unsual,Win potential over 1000,
+50,Unsettled,200, 0,Risky,Customer has Win percentage over 60%,
+1000,Unsettled,8000, 0,Risky,Customer has Win percentage over 60%,Unsual,Win potential over 1000,Unsual,Bet is 10 times higher than the customers average,

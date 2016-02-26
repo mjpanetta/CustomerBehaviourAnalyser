@@ -1,0 +1,18 @@
+CustomerId, IsFlaggedForHighWinPercentage
+2, False
+
+Customers bets
+Stake, State, Win Potential, Win, Bet Risks and Reasons
+5,Settled,0, 0,
+5,Settled,0, 15,
+10,Settled,0, 0,
+10,Settled,0, 0,
+10,Settled,0, 0,
+15,Settled,0, 0,
+10,Settled,0, 0,
+20,Settled,0, 0,
+20,Settled,0, 0,
+20,Settled,0, 0,
+20,Unsettled,200, 0,
+10,Unsettled,50, 0,
+15,Unsettled,60, 0,
