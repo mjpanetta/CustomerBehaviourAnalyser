@@ -17,7 +17,8 @@ namespace UnitTests
 
         string invalidInputExtraColumn =
             "Customer,Event,Participant,Stake,Win | 1,1,6,50,250 | 2,1,3,5,0 | 3,1,3,20,0 | 1,1,6,200,1000,5 | 1,2,1,20,60";
-
+        string invalidInputNonInt =
+            "Customer,Event,Participant,Stake,Win | 1,1,abc,50,250 | 2,1,3,5,0 | 3,1,3,20,0 | 1,1,6,200,1000,5 | 1,2,1,20,60";
 
         [Test]
         public void Doesnt_Create_Duplicate_Customers()
@@ -57,6 +58,27 @@ namespace UnitTests
         }
 
         [Test]
+        public void Throws_Exception_For_Non_Int_Provided()
+        {
+            var inputArray = invalidInputNonInt.Split('|');
+
+            try
+            {
+                CustomerParser parser = new CustomerParser(inputArray[0]);
+
+                for (int i = 1; i < inputArray.Length; i++)
+                {
+                    parser.ParseLine(inputArray[i]);
+                }
+            }
+
+            catch (Exception e)
+            {
+                Assert.IsTrue(e is ArgumentException);
+            }
+        }
+
+        [Test]
         public void Creates_Customers_And_Unsettled_Bets_Correctly()
         {
             var inputArray = input.Split('|');
@@ -92,7 +114,7 @@ namespace UnitTests
 
             for (int i = 1; i < inputArray.Length; i++)
             {
-                parser.ParseLine(inputArray[i]);
+                parser.ParseLine(inputArray[i], BetState.Settled);
             }
 
             var customers = parser.Customers;

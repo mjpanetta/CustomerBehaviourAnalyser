@@ -9,12 +9,13 @@ namespace CustomerBehaviourAnalyser.Model
     public class Customer
     {
 
-        public Customer()
+        public Customer(int customerId)
         {
             Bets = new List<Bet>();
+            CustomerId = customerId;
         }
 
-        public int CustomerId { get; set; }
+        public int CustomerId { get; private set; }
 
         public List<Bet> Bets { get; set; }
 
