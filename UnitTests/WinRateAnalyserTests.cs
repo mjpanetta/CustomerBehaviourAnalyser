@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CustomerBehaviourAnalyser.Analysers;
 using CustomerBehaviourAnalyser.Model;
 using CustomerBehaviourAnalyser.Model.Enums;
-using CustomerBehaviourAnalyser.WinRateAnalyser;
 using NUnit.Framework;
 
 namespace UnitTests
@@ -14,9 +14,7 @@ namespace UnitTests
     public class WinRateAnalyserTests
     {
         private Bet WonBet = new Bet {Stake = 30, State = BetState.Settled, Win = 500, WinPotential = 0};
-
         private Bet LostBet = new Bet { Stake = 50, State = BetState.Settled, Win = 0, WinPotential = 0 };
-
         private Bet UnsettledBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 1000 };
 
         [Test]

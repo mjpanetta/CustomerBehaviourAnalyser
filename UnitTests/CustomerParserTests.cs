@@ -48,12 +48,16 @@ namespace UnitTests
                 {
                     parser.ParseLine(inputArray[i]);
                 }
+
+                //if test makes it here, parser doesnt work as expected
+                Assert.IsTrue(false);
             }
 
             catch (Exception e)
             {
                 Assert.IsTrue(e is ArgumentException);
             }
+
 
         }
 
@@ -70,6 +74,9 @@ namespace UnitTests
                 {
                     parser.ParseLine(inputArray[i]);
                 }
+
+                //if test makes it here, parser doesnt work as expected
+                Assert.IsTrue(false);
             }
 
             catch (Exception e)

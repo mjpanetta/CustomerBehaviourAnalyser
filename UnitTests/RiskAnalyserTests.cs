@@ -13,21 +13,18 @@ namespace UnitTests
     [TestFixture]
     public class RiskAnalyserTests
     {
-
-        private Bet WonBet = new Bet { Stake = 30, State = BetState.Settled, Win = 500, WinPotential = 0 };
-        private Bet LostBet = new Bet { Stake = 50, State = BetState.Settled, Win = 0, WinPotential = 0 };
-        private Bet UnsettledBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 500 };
-
-        private Bet HighWinPotentialBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 1001 };
-
-        private Bet HighStakeBet = new Bet {Stake = 500, State = BetState.Unsettled, Win = 0, WinPotential = 999};
-
-        private Bet ReallyHighStakeBet = new Bet { Stake = 10000, State = BetState.Unsettled, Win = 0, WinPotential = 999999 };
-
-
+        
         [Test]
         public void Catches_Win_Potential_Over_1000_and_Flags_User()
         {
+
+            Bet WonBet = new Bet { Stake = 30, State = BetState.Settled, Win = 500, WinPotential = 0 };
+            Bet LostBet = new Bet { Stake = 50, State = BetState.Settled, Win = 0, WinPotential = 0 };
+            Bet UnsettledBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 500 };
+            Bet HighWinPotentialBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 1001 };
+            Bet HighStakeBet = new Bet { Stake = 500, State = BetState.Unsettled, Win = 0, WinPotential = 999 };
+            Bet ReallyHighStakeBet = new Bet { Stake = 10000, State = BetState.Unsettled, Win = 0, WinPotential = 999999 };
+
             Customer customer = new Customer(2);
 
             customer.Bets.Add(HighWinPotentialBet);
@@ -36,6 +33,7 @@ namespace UnitTests
             customer.Bets.Add(UnsettledBet);
 
             RiskAnalyser analyser = new RiskAnalyser();
+            analyser.RegisterRule(new HighWinPotentialRule());
 
             bool result = analyser.AnalyseCustomer(customer);
 
@@ -48,6 +46,14 @@ namespace UnitTests
         [Test]
         public void Catches_10_Times_Higher_Stake_Than_Usual()
         {
+
+            Bet WonBet = new Bet { Stake = 30, State = BetState.Settled, Win = 500, WinPotential = 0 };
+            Bet LostBet = new Bet { Stake = 50, State = BetState.Settled, Win = 0, WinPotential = 0 };
+            Bet UnsettledBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 500 };
+            Bet HighWinPotentialBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 1001 };
+            Bet HighStakeBet = new Bet { Stake = 500, State = BetState.Unsettled, Win = 0, WinPotential = 999 };
+            Bet ReallyHighStakeBet = new Bet { Stake = 10000, State = BetState.Unsettled, Win = 0, WinPotential = 999999 };
+
             Customer customer = new Customer(2);
 
             customer.Bets.Add(WonBet);
@@ -56,6 +62,7 @@ namespace UnitTests
             customer.Bets.Add(UnsettledBet);
 
             RiskAnalyser analyser = new RiskAnalyser();
+            analyser.RegisterRule(new HighStakeRule());
 
             bool result = analyser.AnalyseCustomer(customer);
 
@@ -67,6 +74,14 @@ namespace UnitTests
         [Test]
         public void Catches_30_Times_Higher_Stake_Than_Usual()
         {
+
+            Bet WonBet = new Bet { Stake = 30, State = BetState.Settled, Win = 500, WinPotential = 0 };
+            Bet LostBet = new Bet { Stake = 50, State = BetState.Settled, Win = 0, WinPotential = 0 };
+            Bet UnsettledBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 500 };
+            Bet HighWinPotentialBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 1001 };
+            Bet HighStakeBet = new Bet { Stake = 500, State = BetState.Unsettled, Win = 0, WinPotential = 999 };
+            Bet ReallyHighStakeBet = new Bet { Stake = 10000, State = BetState.Unsettled, Win = 0, WinPotential = 999999 };
+
             Customer customer = new Customer(2);
 
             customer.Bets.Add(WonBet);
@@ -75,17 +90,26 @@ namespace UnitTests
             customer.Bets.Add(UnsettledBet);
 
             RiskAnalyser analyser = new RiskAnalyser();
+            analyser.RegisterRule(new HighStakeRule());
 
             bool result = analyser.AnalyseCustomer(customer);
 
             Assert.IsTrue(result);
-            Assert.AreEqual(customer.Bets[2].BetRisks[1].Reason, "Bet is 30 timmes higher than the customers average");
-            Assert.AreEqual(customer.Bets[2].BetRisks[1].RiskLevel, BetRiskLevel.HighlyUnusual);
+            Assert.AreEqual(customer.Bets[2].BetRisks[0].Reason, "Bet is 30 timmes higher than the customers average");
+            Assert.AreEqual(customer.Bets[2].BetRisks[0].RiskLevel, BetRiskLevel.HighlyUnusual);
         }
 
         [Test]
         public void Catches_High_Win_Percentage_and_Flags_User()
         {
+
+            Bet WonBet = new Bet { Stake = 30, State = BetState.Settled, Win = 500, WinPotential = 0 };
+            Bet LostBet = new Bet { Stake = 50, State = BetState.Settled, Win = 0, WinPotential = 0 };
+            Bet UnsettledBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 500 };
+            Bet HighWinPotentialBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 1001 };
+            Bet HighStakeBet = new Bet { Stake = 500, State = BetState.Unsettled, Win = 0, WinPotential = 999 };
+            Bet ReallyHighStakeBet = new Bet { Stake = 10000, State = BetState.Unsettled, Win = 0, WinPotential = 999999 };
+
             Customer customer = new Customer(2);
 
             customer.IsFlaggedForHighWinPercentage = true;
@@ -96,6 +120,7 @@ namespace UnitTests
             customer.Bets.Add(UnsettledBet);
 
             RiskAnalyser analyser = new RiskAnalyser();
+            analyser.RegisterRule(new CustomerFlaggedRule());
 
             bool result = analyser.AnalyseCustomer(customer);
 
@@ -108,6 +133,14 @@ namespace UnitTests
         [Test]
         public void Does_Nothing_For_Non_Suspcious_Customer()
         {
+
+            Bet WonBet = new Bet { Stake = 30, State = BetState.Settled, Win = 500, WinPotential = 0 };
+            Bet LostBet = new Bet { Stake = 50, State = BetState.Settled, Win = 0, WinPotential = 0 };
+            Bet UnsettledBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 500 };
+            Bet HighWinPotentialBet = new Bet { Stake = 50, State = BetState.Unsettled, Win = 0, WinPotential = 1001 };
+            Bet HighStakeBet = new Bet { Stake = 500, State = BetState.Unsettled, Win = 0, WinPotential = 999 };
+            Bet ReallyHighStakeBet = new Bet { Stake = 10000, State = BetState.Unsettled, Win = 0, WinPotential = 999999 };
+
             Customer customer = new Customer(2);
 
             customer.Bets.Add(LostBet);
@@ -117,6 +150,9 @@ namespace UnitTests
             customer.Bets.Add(UnsettledBet);
 
             RiskAnalyser analyser = new RiskAnalyser();
+            analyser.RegisterRule(new CustomerFlaggedRule());
+            analyser.RegisterRule(new HighStakeRule());
+            analyser.RegisterRule(new HighWinPotentialRule());
 
             bool result = analyser.AnalyseCustomer(customer);
 
